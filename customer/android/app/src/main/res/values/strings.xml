@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ALPHAMART</string>
+    <string name="title_activity_main">ALPHAMART</string>
+    <string name="package_name">com.alphamart.customer</string>
+    <string name="custom_url_scheme">com.alphamart.customer</string>
+</resources>
