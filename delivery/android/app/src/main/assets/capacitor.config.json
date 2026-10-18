@@ -1,0 +1,23 @@
+{
+	"appId": "com.alphamart.delivery",
+	"appName": "ALPHAMART Delivery",
+	"webDir": "www",
+	"server": {
+		"url": "https://shop.test.in/app/delivery",
+		"cleartext": false,
+		"errorPath": "offline.html"
+	},
+	"android": {
+		"allowMixedContent": false,
+		"backgroundColor": "#12292e"
+	},
+	"plugins": {
+		"PushNotifications": {
+			"presentationOptions": [
+				"badge",
+				"sound",
+				"alert"
+			]
+		}
+	}
+}
