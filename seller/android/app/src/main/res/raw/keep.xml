@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The order tone is only named in push messages, so tell the build not to strip it. -->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@raw/order_alert" />
