@@ -10,6 +10,10 @@ const config: CapacitorConfig = {
   webDir: 'www',
   server: { url: `${base}/app/shop`, cleartext: base.startsWith('http://'), errorPath: 'offline.html' },
   android: { allowMixedContent: false, backgroundColor: '#12292e' },
-  plugins: { PushNotifications: { presentationOptions: ['badge', 'sound', 'alert'] } },
+  plugins: {
+    PushNotifications: { presentationOptions: ['badge', 'sound', 'alert'] },
+    // Keep the page clear of the status bar and gesture bar on every Android version (older WebViews get native padding, newer ones get real safe-area values).
+    SystemBars: { insetsHandling: 'native' },
+  },
 };
 export default config;

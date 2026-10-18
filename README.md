@@ -1,4 +1,4 @@
-# ALPHAMART Android apps (v1)
+# ALPHAMART Android apps (v6)
 
 Two apps, built for you by GitHub for free. No Android Studio needed.
 
@@ -71,3 +71,6 @@ For the pilot, installing the APK directly is enough. For the Play Store you nee
 
 ## Keep safe
 `alphamart.keystore` and its passwords. Without them you cannot update the apps you have already handed out.
+
+## SMS sender app (own SIM) — `smsgateway/`
+Sends login codes from a spare phone's SIM. Built by `.github/workflows/build-smsgateway.yml` (Actions tab → "Build SMS sender app" → Run workflow). Server needs `SMS_GATEWAY_TOKEN` in `.env`. Android 8+.

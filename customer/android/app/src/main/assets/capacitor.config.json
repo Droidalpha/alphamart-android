@@ -1,0 +1,23 @@
+{
+	"appId": "com.alphamart.customer",
+	"appName": "ALPHAMART",
+	"webDir": "www",
+	"server": {
+		"url": "https://CHANGE-ME.example.com/app/shop",
+		"cleartext": false,
+		"errorPath": "offline.html"
+	},
+	"android": {
+		"allowMixedContent": false,
+		"backgroundColor": "#12292e"
+	},
+	"plugins": {
+		"PushNotifications": {
+			"presentationOptions": [
+				"badge",
+				"sound",
+				"alert"
+			]
+		}
+	}
+}
