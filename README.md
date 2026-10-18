@@ -1,9 +1,12 @@
-# ALPHAMART Android apps (v6)
+# ALPHAMART Android apps (v7)
 
-Two apps, built for you by GitHub for free. No Android Studio needed.
+Three apps, built for you by GitHub for free. No Android Studio needed.
 
 - **ALPHAMART** (customers) – `customer/`, id `com.alphamart.customer`
 - **ALPHAMART Delivery** (delivery boys) – `delivery/`, id `com.alphamart.delivery`, shares live location in the background
+- **ALPHAMART Seller** (shop staff) – `seller/`, id `com.alphamart.seller`, rings for new orders
+
+v7: order tone (`res/raw/order_alert.wav`) for new orders, delivery offers and "order nearby"; seller app; customer app may use location to pin an address.
 
 Each app is a thin shell that opens your server's web app. When you update the website (web zip), phones get the change at once. A new APK is needed only to change the icon, name, permissions or native features.
 
@@ -20,8 +23,8 @@ You need your server running on a real https address (see the VPS guide), e.g. `
 ## 2. Firebase (for push notifications)
 1. Go to console.firebase.google.com, **Add project**, name it ALPHAMART. Turn Google Analytics off.
 2. Click the Android icon to add an app. Package name `com.alphamart.customer`. Register. Skip the rest.
-3. In Project settings, **Add app** again: Android, package name `com.alphamart.delivery`.
-4. Project settings > Your apps: download `google-services.json`. It must list both apps. If it lists only one, download it again after adding the second.
+3. In Project settings, **Add app** again: Android, package name `com.alphamart.delivery`. Do it once more for `com.alphamart.seller`.
+4. Project settings > Your apps: download `google-services.json`. It must list all three apps. An app missing from the file still builds, just without push.
 5. Make it one line of text: on Windows PowerShell run `[Convert]::ToBase64String([IO.File]::ReadAllBytes("google-services.json"))`. On Linux/Mac run `base64 -w0 google-services.json`. Copy the output.
 6. For the server: Project settings > Service accounts > **Generate new private key**. Save that file on the VPS and set `FCM_SERVICE_ACCOUNT=/path/to/file.json` in the server `.env`, then restart.
 
