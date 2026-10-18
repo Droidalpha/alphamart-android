@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        app: [customer, delivery]
+        app: [customer, delivery, seller]
     steps:
       - uses: actions/checkout@v4
 
@@ -44,7 +44,11 @@ jobs:
         env:
           GS: ${{ secrets.GOOGLE_SERVICES_JSON }}
         run: |
-          if [ -n "$GS" ]; then echo "$GS" | base64 -d > android/app/google-services.json; else echo "::warning::GOOGLE_SERVICES_JSON secret missing. The app will build but push notifications will not work."; fi
+          if [ -z "$GS" ]; then echo "::warning::GOOGLE_SERVICES_JSON secret missing. The app will build but push notifications will not work."; exit 0; fi
+          echo "$GS" | base64 -d > /tmp/gs.json
+          PKG="com.alphamart.${{ matrix.app }}"
+          if grep -q "\"$PKG\"" /tmp/gs.json; then mv /tmp/gs.json android/app/google-services.json
+          else echo "::warning::$PKG is not in your Firebase file yet. This app builds without push. Add it in Firebase, download google-services.json again and update the GOOGLE_SERVICES_JSON secret."; fi
 
       - name: Sync web assets into the Android project
         working-directory: ${{ matrix.app }}
